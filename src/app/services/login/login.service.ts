@@ -26,11 +26,14 @@ export class LoginService {
   ) { }
 
   login(Username: string, Password: string): any {
-    this.userSubject.next({ Accounts:[
-      {Balance:1123}
-    ] });
+    this.userSubject.next({
+      Accounts: [
+        { Balance: 1123 }
+      ]
+    });
     this.errorSubject.next(null);
-        this.isLoggedIn = true;
+    this.isLoggedIn = true;
+    this.router.navigateByUrl('/dashboard');
     // this.http.post(this.url, { Username, Password }, httpOptions).toPromise().then((res: any) => {
     //   if (res.Data && res.Data.length) {
     //     this.userSubject.next(res.Data[0]);
