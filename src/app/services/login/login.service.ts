@@ -26,17 +26,22 @@ export class LoginService {
   ) { }
 
   login(Username: string, Password: string): any {
-    this.http.post(this.url, { Username, Password }, httpOptions).toPromise().then((res: any) => {
-      if (res.Data && res.Data.length) {
-        this.userSubject.next(res.Data[0]);
-        this.errorSubject.next(null);
+    this.userSubject.next({ Accounts:[
+      {Balance:1123}
+    ] });
+    this.errorSubject.next(null);
         this.isLoggedIn = true;
-        this.router.navigateByUrl('/dashboard');
-      } else if (res.Message) {
-        this.userSubject.next(null);
-        this.errorSubject.next(res.Message);
-      }
-    });
+    // this.http.post(this.url, { Username, Password }, httpOptions).toPromise().then((res: any) => {
+    //   if (res.Data && res.Data.length) {
+    //     this.userSubject.next(res.Data[0]);
+    //     this.errorSubject.next(null);
+    //     this.isLoggedIn = true;
+    //     this.router.navigateByUrl('/dashboard');
+    //   } else if (res.Message) {
+    //     this.userSubject.next(null);
+    //     this.errorSubject.next(res.Message);
+    //   }
+    // });
   }
 
   isAuthenticated() {
