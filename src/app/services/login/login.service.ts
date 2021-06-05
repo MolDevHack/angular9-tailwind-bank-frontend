@@ -23,7 +23,14 @@ export class LoginService {
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) { }
+  ) {
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn')
+    if (isLoggedIn != undefined) {
+      this.isLoggedIn = isLoggedIn == 'true' ? true : false
+    }
+
+  }
 
   login(Username: string, Password: string): any {
     this.userSubject.next({
@@ -33,6 +40,7 @@ export class LoginService {
     });
     this.errorSubject.next(null);
     this.isLoggedIn = true;
+    localStorage.setItem('isLoggedIn', this.isLoggedIn.toString());
     this.router.navigateByUrl('/dashboard');
     // this.http.post(this.url, { Username, Password }, httpOptions).toPromise().then((res: any) => {
     //   if (res.Data && res.Data.length) {
