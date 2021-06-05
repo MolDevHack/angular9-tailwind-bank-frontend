@@ -6,7 +6,7 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
-  color: white;
+  color: var(--mol_theme_text);
   position: relative;
   .logo {
     max-height: 60px;
@@ -19,4 +19,7 @@
     bottom: 0;
     right: 0;
   }
+}
+.mol-theme-back {
+  background-color: var(--mol_theme_back);
 }
