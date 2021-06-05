@@ -10,6 +10,7 @@ const routes: Routes = [
     pathMatch: 'full',
     children: [
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: 'mol_lights', component: DashboardComponent, canActivate: [AuthGuard] },
     ]
 
   }
