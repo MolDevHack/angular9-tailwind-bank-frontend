@@ -20,9 +20,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     this.activatedRoute.fragment.subscribe(params => {
-      if (params['/mol_lights=on']) {
+      if (params == '/mol_lights=on') {
         this.changeTheme()
-      } else if (params['/mol_lights=off']) {
+      } else if (params == '/mol_lights=off') {
         this.changeTheme('$mol_theme_dark')
       }
     });
