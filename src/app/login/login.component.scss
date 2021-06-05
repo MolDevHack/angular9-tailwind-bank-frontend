@@ -23,3 +23,7 @@
 .mol-theme-back {
   background-color: var(--mol_theme_back);
 }
+input {
+  background-color: var(--mol_skin_good_text);
+    border-color: var(--mol_skin_good_text);
+}
